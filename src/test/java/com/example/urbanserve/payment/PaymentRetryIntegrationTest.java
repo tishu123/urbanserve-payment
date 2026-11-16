@@ -21,7 +21,7 @@ import com.example.urbanserve.payment.service.PaymentService;
 
 @SpringBootTest(properties = {
         "spring.datasource.url=jdbc:h2:mem:payment-retry-test",
-        "spring.jpa.hibernate.ddl-auto=create-drop"
+        "spring.jpa.hibernate.ddl-auto=validate"
 })
 class PaymentRetryIntegrationTest {
 

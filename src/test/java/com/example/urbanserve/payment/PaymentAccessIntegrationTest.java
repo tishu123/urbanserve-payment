@@ -20,7 +20,7 @@ import com.example.urbanserve.payment.repository.PaymentRepository;
         properties = {
                 "payment.internal-token=" + PaymentAccessIntegrationTest.TEST_TOKEN,
                 "spring.datasource.url=jdbc:h2:mem:payment-access-tests",
-                "spring.jpa.hibernate.ddl-auto=create-drop",
+                "spring.jpa.hibernate.ddl-auto=validate",
                 "razorpay.key-id=",
                 "razorpay.key-secret="
         }

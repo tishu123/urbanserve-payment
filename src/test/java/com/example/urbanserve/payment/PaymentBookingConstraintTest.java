@@ -1,21 +1,23 @@
 package com.example.urbanserve.payment;
 
-import com.example.urbanserve.payment.entity.Payment;
-import com.example.urbanserve.payment.entity.PaymentMethod;
-import com.example.urbanserve.payment.entity.PaymentStatus;
-import com.example.urbanserve.payment.repository.PaymentRepository;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import com.example.urbanserve.payment.entity.Payment;
+import com.example.urbanserve.payment.entity.PaymentMethod;
+import com.example.urbanserve.payment.entity.PaymentStatus;
+import com.example.urbanserve.payment.repository.PaymentRepository;
 
 @SpringBootTest(properties = {
-        "spring.datasource.url=jdbc:h2:mem:payment-booking-constraint-test",
-        "spring.jpa.hibernate.ddl-auto=create-drop"
+        "spring.datasource.url=${PAYMENT_TEST_JDBC_URL:jdbc:h2:mem:payment-booking-constraint-test}",
+        "spring.datasource.username=${PAYMENT_TEST_DB_USER:sa}",
+        "spring.datasource.password=${PAYMENT_TEST_DB_PASSWORD:}",
+        "spring.jpa.hibernate.ddl-auto=validate"
 })
 @Transactional
 class PaymentBookingConstraintTest {
