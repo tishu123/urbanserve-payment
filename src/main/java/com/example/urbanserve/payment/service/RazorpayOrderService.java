@@ -25,6 +25,9 @@ public class RazorpayOrderService {
         this.jdbc = jdbc;
         this.gateway = gateway;
     }
+    public void requireTestMode() {
+        gateway.requireTestMode();
+    }
 
     // Save the receipt before sending any create request to Razorpay.
     @Transactional(propagation = Propagation.NEVER)
